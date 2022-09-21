@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="web">
+    <h1>welcome to vue js bootcamp</h1>
+    <p>welcome {{'Mss' + ' ' + name.toUpperCase() }} we are happy to see you .</p>
+    <p>Your age is : {{ age +'years .' }}</p>
+    <p> you are from in {{ live }}</p>
+    <p v-text="title"></p>
+    <p v-html="titless"></p>
+    <p>my favourite skills are </p>
+    <ul v-for="skills">
+       
+            <li v-for="skils">
+                {{ skills[0] }}
+            </li>
+            <li v-for="skils">
+                {{ skills[1] }}
+            </li>
+            <li v-for="skils">
+                {{ skills[2] }}
+            </li>
+      
+    </ul>
+<p> hi {{ name ? name : 'No Name' }}</p>
+<p v-if="name">hi {{ name }}</p>
+<p v-else="">you didnt set a name</p>
+<p v-if="age > 50"> you are too old</p>
+<p v-else-if="age > 15 && age < 40"> you are not too old </p>
+<p v-else=""> you are still young</p>
+<p v-once="name">welcome {{ name }}</p>
+<p v-show="name">welcome {{ name }}</p>
+<a v-bind:href="url">
+    <img v-bind:src="img" v-bind:alt="alt">
+</a>
+<p>counter is {{ count }}</p>
+<button @click="count++"> Increase counter</button>
+<!--<p>counter is {{ count }}</p>
+<button @click="count+=2"> Increase counter</button>
+-->
+<label>write your username :</label>
+<input type="text" v-model="username">
+<p>{{  valide }}</p>
+</div>
+
+<script>
+    var { createApp } = Vue
+  
+
+    createApp({
+      data() {
+        return {
+          name: 'samar gaiche' ,
+          age: 24,
+          skills: ['html', 'css', 'js'] ,
+          isSubscribed:false,
+          live: 'Tunisia',
+          title: '<b classe="rank>Noob</b>',
+          url: 'https//www.google.com',
+          img: '1.jpg',
+          alt: 'vuejs',
+          count: 0,
+          username:'',
+          computed:{
+            valide: function () {
+            if (!this.username){
+                return 'username can be em';
+            }
+            }
+        }
+         
+        }
+        
+    }
+    }).mount('#web')
+   
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!--<div id="app">{{ message }}</div>
+
+<script>
+  const { createApp } = Vue
+
+  createApp({
+    data() {
+      return {
+        message: 'Hello Vue!'
+      }
+    }
+  }).mount('#app')-->
+
+   
+</body>
+</html>
